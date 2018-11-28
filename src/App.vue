@@ -42,6 +42,10 @@
   padding-bottom: 50px;
   overflow-x: hidden;
 
+ .mint-header{
+	 background-color: rgb(240, 65, 12);
+	 z-index: 999;
+ }
   .v-enter {
     transform: translateX(100%);
     opacity: 0;
