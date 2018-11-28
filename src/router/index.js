@@ -1,20 +1,52 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
-import HomeComponent from '../pages/home/'
-import MemberComponent from '../pages/member/'
-import ShopcarComponent from '../pages/shopcar/'
-import SearchComponent from '../pages/search/'
+import homeComponent from '../pages/home/'
+import memberComponent from '../pages/member/'
+import shopcarComponent from '../pages/shopcar/'
+import searchComponent from '../pages/search/'
+import newsListComponent from '../pages/newsList/'
+import newsInfoComponent from '../pages/newsInfo/'
+import photoListComponent from '../pages/photoList/'
+import goodsListComponent from '../pages/goodsList/'
+import goodsInfoComponent from '../pages/goodsInfo/'
+import goodsCommentComponent from '../pages/goodsComment/'
+import goodsDescComponent from '../pages/goodsDesc/'
 
 Vue.use(Router)
 
-export default new Router({
+const router = new Router({
   routes: [
     { path: '/', redirect: '/home' },
-    { path: '/home', component: HomeComponent },
-    { path: '/member', component: MemberComponent },
-    { path: '/shopcar', component: ShopcarComponent },
-    { path: '/search', component: SearchComponent },
+    { path: '/home', component: homeComponent },
+    { path: '/member', component: memberComponent },
+    { path: '/shopcar', component: shopcarComponent },
+    { path: '/search', component: searchComponent },
+    { path: '/home/newsList', component: newsListComponent },
+    { path: '/home/newsInfo/:id', component: newsInfoComponent },
+    { path: '/home/photoList', component: photoListComponent },
+    { path: '/home/goodsList', component: goodsListComponent },
+    { path: '/home/goodsInfo/:id', component: goodsInfoComponent },
+    { path: '/home/goodsComment', component: goodsCommentComponent,name:"goodscomment" },
+    { path: '/home/goodsDesc/:id', component: goodsDescComponent, name: "goodsdesc" },
   ],
   linkActiveClass: 'mui-active'
 })
+
+// router.beforeEach((to, from, next) => {
+//   // 在路由进入之前做的事情, 如果不调用next()方法就可以阻止路由的跳转
+//   console.log(to)
+//   console.log(from)
+//   // 阻止路由跳转到newsList页面
+//   if (to.path === '/home/newsList') {
+//     return;
+//   }
+
+//   next();
+// })
+
+// router.afterEach((to, from) => {
+
+// })
+
+export default router
